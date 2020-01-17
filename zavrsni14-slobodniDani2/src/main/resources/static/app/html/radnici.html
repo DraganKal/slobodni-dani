@@ -1,0 +1,67 @@
+<div ng-controller="RadniciCtrl">
+	<br>
+	<br>
+	<br>
+	<div>
+		<button class="btn btn-primary" ng-click="goToAdd()">Dodavanje</button>
+	</div>
+	<div class="w-50 p-3">
+		<h3>Pretraga radnika</h3>
+		<form>
+			
+			<div class="form-group">
+				<label for="sbroj">Identifikacioni broj</label>
+				<input ng-model="sParams.idBroj" id="sbroj" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="sime">Ime i prezime</label>
+				<input ng-model="sParams.imeIPrezime" id="sime" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="ssektor">Sektor</label>
+				<select class="form-control" ng-model="sParams.sektorId" id="ssektor">
+					<option ng-repeat="s in sektori" value="{{s.id}}">{{s.naziv}}</option>
+				</select>
+			</div>
+
+			
+			<button ng-click="doSearch()" class="btn btn-primary">Trazi</button>
+			<button ng-click="doClear()" class="btn btn-primary">Obrisi pretragu</button>
+		</form>
+	
+	
+	</div>
+
+	<div class="btn-group float-right">
+			<button ng-disabled="pageNum == 0" ng-click="changePage(-1)" class="btn btn-info">Nazad</button>
+			<button ng-disabled="pageNum == totalPages - 1" ng-click="changePage(1)" class="btn btn-info">Napred</button>
+			
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Identifikacioni</th>
+					<th>Ime i prezime</th>
+					<th>Email</th>
+					<th>Slobodni dani</th>
+					<th>Sektor</th>
+					<th>Akcije</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="r in radnici">
+					<td>{{r.idBroj}}</td>
+					<td>{{r.imeIPrezime}} </td>
+					<td>{{r.email}}</td>
+					<td>{{r.slobodniDani}}</td>
+					<td>{{r.sektorNaziv}}</td>
+					<td>
+						<button class="btn btn-danger" ng-click="doObrisi(r.id)" >Obrisi</button>
+						<button class="btn btn-warning" ng-click="goToEdit(r.id)">Izmeni</button>
+						<button class="btn btn-primary" ng-click="goToGodisnji(r.id)">Godisnji</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+</div>
+</div>

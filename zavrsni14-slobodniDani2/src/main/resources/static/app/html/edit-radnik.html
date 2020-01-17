@@ -1,0 +1,33 @@
+<div ng-controller="EditRadnikCtrl">
+<br>
+<br>
+<br>
+<form>
+		<div class="form-group">
+			<label for="rbroj">Identifikacioni broj</label>
+			<input class="form-control" id="rbroj" ng-model="radnik.idBroj" />
+		</div>
+		<div class="form-group">
+			<label for="rime">Ime i prezime</label>
+			<input class="form-control" id="rime" ng-model="radnik.imeIPrezime"/>
+		</div>
+		<div class="form-group">
+			<label for="remail">Email</label>
+			<input class="form-control" id="remail" ng-model="radnik.email"/>
+		</div>
+		<div class="form-group">
+			<label for="rgodine">Godine radnog staza</label>
+			<input class="form-control" id="rgodine" ng-model="radnik.godineStaza"/>
+		</div>
+		
+		<div class="form-group">
+			<label for="rsektori">Sektor</label>
+			<select class="form-control" ng-model="radnik.sektorId" id="rsektori">
+				<option ng-repeat="s in sektori" value="{{s.id}}"  ng-selected="s.id == radnik.sektorId">{{s.naziv}}</option>
+			</select>
+		</div>
+		
+		<button class="btn btn-primary" ng-click="doEdit()">Izmeni</button>
+	</form>
+
+</div>

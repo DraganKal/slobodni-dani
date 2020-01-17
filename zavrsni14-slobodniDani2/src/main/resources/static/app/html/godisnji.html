@@ -1,0 +1,28 @@
+<div ng-controller="GodisnjiCtrl">
+	<br>
+	<br>
+	<br>
+	<div ng-if="radnik.slobodniDani <= 0">
+		Radnik nema vise slobodnih dana
+	</div>
+
+
+	<div ng-if="radnik.slobodniDani > 0">
+		<form>
+			<div class="form-group">
+				<label for="rbroj">Datum pocetka</label>
+				<input class="form-control" id="rbroj" ng-model="godisnji.datumPocetka" />
+			</div>
+			<div class="form-group">
+				<label for="rime">Datum kraja</label>
+				<input class="form-control" id="rime" ng-model="godisnji.datumKraja"/>
+			</div>
+			<div class="form-group">
+				<label for="remail">Radnih dana</label>
+				<input class="form-control" id="remail" ng-model="godisnji.radnihDana"/>
+			</div>
+			
+			<button class="btn btn-primary" ng-click="doGodisnji()">Dodaj</button>
+		</form>
+	</div>
+</div>
